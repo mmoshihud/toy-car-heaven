@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Header = () => {
+  const { user, logOut, loading } = useContext(AuthContext);
+  const handleLogOut = () => {
+    logOut().then(console.log("log out success"));
+  };
   return (
     <div className="container mx-auto">
       <div className="navbar bg-base-100">
@@ -50,19 +56,29 @@ const Header = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
               <div className="w-10 rounded-full">
-                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <img src={user ? user.photoURL : ""} />
               </div>
             </label>
             <ul
               tabIndex={0}
               className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
             >
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-              <li>
-                <Link to="/register">Sign Up</Link>
-              </li>
+              {loading ? (
+                <div>Loading</div>
+              ) : user ? (
+                <li>
+                  <Link onClick={handleLogOut}>Log Out</Link>
+                </li>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
+                  <li>
+                    <Link to="/register">Sign Up</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
         </div>

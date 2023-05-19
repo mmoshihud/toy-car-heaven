@@ -1,14 +1,48 @@
+import { AuthContext } from "../../provider/AuthProvider";
+import { getAuth, updateProfile } from "firebase/auth";
+import { Link, useNavigate } from "react-router-dom";
+import { useContext } from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import app from "../../utilities/firebase.config";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const auth = getAuth(app);
 
   const handleLoginForm = (event) => {
     event.preventDefault();
+    const name = event.target.name.value;
     const email = event.target.email.value;
     const password = event.target.password.value;
-    console.log(email, password);
+    const confirmPassword = event.target.confirm.value;
+    const photoUrl = event.target.photo_url.value;
+
+    if (email.length < 1) {
+      return;
+    }
+    if (password.length < 6) {
+      return;
+    }
+    if (password !== confirmPassword) {
+      return;
+    }
+    createUser(email, password)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photoUrl,
+        })
+          .then(() => {})
+          .catch((error) => {
+            console.log(error);
+          });
+        event.target.reset();
+        navigate("/");
+      })
+      .catch((error) => console.log(error.message));
   };
 
   const showPasswordHandle = () => {
