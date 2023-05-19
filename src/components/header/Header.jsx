@@ -66,9 +66,14 @@ const Header = () => {
               {loading ? (
                 <div>Loading</div>
               ) : user ? (
-                <li>
-                  <Link onClick={handleLogOut}>Log Out</Link>
-                </li>
+                <>
+                  <li>
+                    <Link to="/user-profile">User Profile</Link>
+                  </li>
+                  <li>
+                    <Link onClick={handleLogOut}>Log Out</Link>
+                  </li>
+                </>
               ) : (
                 <>
                   <li>
