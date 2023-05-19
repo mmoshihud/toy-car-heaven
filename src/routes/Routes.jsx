@@ -4,6 +4,7 @@ import Login from "../components/pages/login/Login";
 import Profile from "../components/pages/profile/Profile";
 import Register from "../components/pages/register/Register";
 import App from "../layouts/App";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/all-toys",
+        element: (
+          <PrivateRoute>
+            <Home></Home>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/user-profile",

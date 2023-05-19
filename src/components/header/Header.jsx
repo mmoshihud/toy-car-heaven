@@ -33,10 +33,16 @@ const Header = () => {
               className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
             >
               <li>
-                <a>Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <a>Services</a>
+                <Link to="/all-toys">All Toys</Link>
+              </li>
+              <li>
+                <Link to="/my-toys">My Toys</Link>
+              </li>
+              <li>
+                <Link to="/blogs">Blogs</Link>
               </li>
             </ul>
           </div>
@@ -45,10 +51,16 @@ const Header = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a>Services</a>
+              <Link to="/all-toys">All Toys</Link>
+            </li>
+            <li>
+              <Link to="/my-toys">My Toys</Link>
+            </li>
+            <li>
+              <Link to="/blogs">Blogs</Link>
             </li>
           </ul>
         </div>
@@ -56,7 +68,13 @@ const Header = () => {
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
               <div className="w-10 rounded-full">
-                <img src={user ? user.photoURL : ""} />
+                <img
+                  src={
+                    user
+                      ? user.photoURL
+                      : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                  }
+                />
               </div>
             </label>
             <ul

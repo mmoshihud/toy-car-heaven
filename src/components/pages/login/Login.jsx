@@ -1,13 +1,15 @@
 import { getAuth } from "firebase/auth";
 import { useContext } from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.form?.pathname;
 
   const handleLoginForm = (event) => {
     event.preventDefault();
@@ -19,7 +21,7 @@ const Login = () => {
     signIn(email, password)
       .then(() => {
         event.target.reset();
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);
