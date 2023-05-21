@@ -13,21 +13,24 @@ const AddToys = () => {
     const userName = user?.displayName;
     const userEmail = user?.email;
 
-    fetch("http://localhost:5000/toys/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        subCategory: subCategory,
-        quantity: quantity,
-        price: price,
-        photoURL: photoUrl,
-        userName: userName,
-        userEmail: userEmail,
-      }),
-    })
+    fetch(
+      "https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys/add",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          subCategory: subCategory,
+          quantity: quantity,
+          price: price,
+          photoURL: photoUrl,
+          userName: userName,
+          userEmail: userEmail,
+        }),
+      }
+    )
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error(error));

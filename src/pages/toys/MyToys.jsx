@@ -6,19 +6,23 @@ const MyToys = () => {
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys")
       .then((response) => response.json())
       .then((data) => setToys(data))
       .catch((error) => console.error(error));
   }, []);
 
   const handleDelete = (_id) => {
-    fetch("http://localhost:5000/toys/" + _id, {
-      method: "Delete",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      "https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys/" +
+        _id,
+      {
+        method: "Delete",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => response.json())
       .then(() => {
         const remaining = toys.filter((toy) => toy._id !== _id);
