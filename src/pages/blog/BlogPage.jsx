@@ -1,6 +1,6 @@
 const BlogPage = () => {
   return (
-    <div>
+    <div className="container mx-auto">
       <h1 className="mb-4 text-2xl font-bold">
         1. Tell us the differences between uncontrolled and controlled
         components?

@@ -1,9 +1,18 @@
+import { useEffect } from "react";
+import { useState } from "react";
 import Blog from "../../components/blog/Blog";
 import FeaturedToy from "../../components/featured-toy/FeaturedToy";
 import Gallery from "../../components/gallery/Gallery";
 import Toys from "../../components/toys/Toys";
 
 const Home = () => {
+  const [toys, setToys] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/toys")
+      .then((response) => response.json())
+      .then((data) => setToys(data))
+      .catch((error) => console.error(error));
+  }, []);
   return (
     <>
       <div
@@ -27,10 +36,10 @@ const Home = () => {
         Car Toy Collection
       </h1>
       <Gallery />
-      <h1 className="mb-8 text-center text-5xl font-extrabold">
+      <h1 className="mb-8 mt-4 text-center text-5xl font-extrabold">
         Shop by Category
       </h1>
-      <Toys />
+      <Toys toys={toys} />
       <h1 className="mb-8 text-center text-5xl font-extrabold">
         From The Blog
       </h1>

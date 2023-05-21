@@ -30,36 +30,38 @@ const MyToys = () => {
   return (
     <>
       <div className="container mx-auto">
-        <div class="w-full">
-          <table class="min-w-full border border-gray-300 bg-white text-center">
+        <div className="w-full">
+          <table className="min-w-full border border-gray-300 bg-white text-center">
             <thead>
-              <tr class="bg-gray-200">
-                <th class="border-b border-gray-300 px-4 py-2">Toy Name</th>
-                <th class="border-b border-gray-300 px-4 py-2">Email</th>
-                <th class="border-b border-gray-300 px-4 py-2">Uploaded By</th>
-                <th class="border-b border-gray-300 px-4 py-2">Price</th>
-                <th class="border-b border-gray-300 px-4 py-2">Quantity</th>
-                <th class="border-b border-gray-300 px-4 py-2">Action</th>
+              <tr className="bg-gray-200">
+                <th className="border-b border-gray-300 px-4 py-2">Toy Name</th>
+                <th className="border-b border-gray-300 px-4 py-2">Email</th>
+                <th className="border-b border-gray-300 px-4 py-2">
+                  Uploaded By
+                </th>
+                <th className="border-b border-gray-300 px-4 py-2">Price</th>
+                <th className="border-b border-gray-300 px-4 py-2">Quantity</th>
+                <th className="border-b border-gray-300 px-4 py-2">Action</th>
               </tr>
             </thead>
             <tbody>
               {toys.map((toy) => (
-                <tr key={toy._id} class="border-b border-gray-300">
-                  <td class="px-4 py-2">{toy.name}</td>
-                  <td class="px-4 py-2">{toy.subCategory}</td>
-                  <td class="px-4 py-2">{toy.userName}</td>
-                  <td class="px-4 py-2">{toy.price}</td>
-                  <td class="px-4 py-2">{toy.quantity}</td>
-                  <td class="px-4 py-2">
-                    <a
+                <tr key={toy._id} className="border-b border-gray-300">
+                  <td className="px-4 py-2">{toy.name}</td>
+                  <td className="px-4 py-2">{toy.subCategory}</td>
+                  <td className="px-4 py-2">{toy.userName}</td>
+                  <td className="px-4 py-2">{toy.price}</td>
+                  <td className="px-4 py-2">{toy.quantity}</td>
+                  <td className="px-4 py-2">
+                    <Link
                       href={"/toys/edit/" + toy._id}
-                      class="text-blue-500 underline"
+                      className="text-blue-500 underline"
                     >
                       Edit
-                    </a>
+                    </Link>
                     <button
                       onClick={() => handleDelete(toy._id)}
-                      class="ml-2 text-red-500"
+                      className="ml-2 text-red-500"
                     >
                       Delete
                     </button>

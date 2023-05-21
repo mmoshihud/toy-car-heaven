@@ -10,6 +10,7 @@ import EditToys from "../pages/toys/EditToys";
 import MyToys from "../pages/toys/MyToys";
 import ErrorPage from "../pages/error/404";
 import AllToys from "../pages/toys/AllToys";
+import BlogPage from "../pages/blog/BlogPage";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/toys/edit/:id",
         element: <EditToys />,
+      },
+      {
+        path: "/blogs",
+        element: <BlogPage />,
       },
       {
         path: "/user-profile",
