@@ -7,11 +7,14 @@ import App from "../layouts/App";
 import PrivateRoute from "./PrivateRoute";
 import AddToys from "../pages/toys/AddToys";
 import EditToys from "../pages/toys/EditToys";
+import MyToys from "../pages/toys/MyToys";
+import ErrorPage from "../pages/error/404";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -26,8 +29,12 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/my-toys",
+        element: <MyToys />,
+      },
+      {
         path: "/toys/add",
-        element: <AddToys></AddToys>,
+        element: <AddToys />,
       },
       {
         path: "/toys/edit/:id",
