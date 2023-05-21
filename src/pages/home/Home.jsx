@@ -1,4 +1,5 @@
 import Blog from "../../components/blog/Blog";
+import FeaturedToy from "../../components/featured-toy/FeaturedToy";
 import Gallery from "../../components/gallery/Gallery";
 import Toys from "../../components/toys/Toys";
 
@@ -34,6 +35,10 @@ const Home = () => {
         From The Blog
       </h1>
       <Blog />
+      <h1 className="mb-8 text-center text-5xl font-extrabold">
+        Toys of the Month
+      </h1>
+      <FeaturedToy />
     </>
   );
 };
