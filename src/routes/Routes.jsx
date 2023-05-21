@@ -9,6 +9,7 @@ import AddToys from "../pages/toys/AddToys";
 import EditToys from "../pages/toys/EditToys";
 import MyToys from "../pages/toys/MyToys";
 import ErrorPage from "../pages/error/404";
+import AllToys from "../pages/toys/AllToys";
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/all-toys",
-        element: <Home></Home>,
+        element: <AllToys />,
       },
       {
         path: "/my-toys",

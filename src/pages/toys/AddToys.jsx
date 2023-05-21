@@ -1,11 +1,17 @@
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+
 const AddToys = () => {
+  const { user } = useContext(AuthContext);
   const handleToyForm = (event) => {
     event.preventDefault();
     const name = event.target.name.value;
     const subCategory = event.target.sub_category.value;
     const quantity = event.target.quantity.value;
     const price = event.target.price.value;
-    const photo_url = event.target.photo_url.value;
+    const photoUrl = event.target.photo_url.value;
+    const userName = user?.displayName;
+    const userEmail = user?.email;
 
     fetch("http://localhost:5000/toys/add", {
       method: "POST",
@@ -17,7 +23,9 @@ const AddToys = () => {
         subCategory: subCategory,
         quantity: quantity,
         price: price,
-        photoURL: photo_url,
+        photoURL: photoUrl,
+        userName: userName,
+        userEmail: userEmail,
       }),
     })
       .then((response) => response.json())
@@ -25,19 +33,105 @@ const AddToys = () => {
       .catch((error) => console.error(error));
   };
   return (
-    <form onSubmit={handleToyForm} className="flex flex-col">
-      <label htmlFor="name">Toy Name:</label>
-      <input type="text" name="name" />
-      <label htmlFor="sub_category">Sub Category</label>
-      <input type="text" name="sub_category" />
-      <label htmlFor="quantity">Quantity</label>
-      <input type="text" name="quantity" />
-      <label htmlFor="price">Price</label>
-      <input type="text" name="price" />
-      <label htmlFor="photo_url">Photo Url</label>
-      <input type="text" name="photo_url" />
-      <button type="submit">Add</button>
-    </form>
+    <>
+      <form onSubmit={handleToyForm} className="container mx-auto mb-4">
+        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+          <div className="col-span-full">
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium leading-6 text-gray-900"
+            >
+              Toy Name:
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                name="name"
+                className="block w-full rounded-md border-0 p-4 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div className="col-span-full">
+            <label
+              htmlFor="sub_category"
+              className="block text-sm font-medium leading-6 text-gray-900"
+            >
+              Sub Category Name:
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                name="sub_category"
+                className="block w-full rounded-md border-0 p-4 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div className="col-span-full">
+            <label
+              htmlFor="quantity"
+              className="block text-sm font-medium leading-6 text-gray-900"
+            >
+              Quantity:
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                name="quantity"
+                className="block w-full rounded-md border-0 p-4 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div className="col-span-full">
+            <label
+              htmlFor="photo_url"
+              className="block text-sm font-medium leading-6 text-gray-900"
+            >
+              Toy Photo URL:
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                name="photo_url"
+                className="block w-full rounded-md border-0 p-4 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div className="col-span-full">
+            <label
+              htmlFor="price"
+              className="block text-sm font-medium leading-6 text-gray-900"
+            >
+              Price:
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                name="price"
+                className="block w-full rounded-md border-0 p-4 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="mt-6 flex items-center justify-end gap-x-6">
+          <button
+            type="button"
+            className="text-sm font-semibold leading-6 text-gray-900"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >
+            Save
+          </button>
+        </div>
+      </form>
+    </>
   );
 };
 
