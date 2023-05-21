@@ -5,6 +5,7 @@ import Profile from "../pages/profile/Profile";
 import Register from "../pages/register/Register";
 import App from "../layouts/App";
 import PrivateRoute from "./PrivateRoute";
+import AddToys from "../pages/toys/AddToys";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             <Home></Home>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/toys/add",
+        element: <AddToys></AddToys>,
       },
       {
         path: "/user-profile",

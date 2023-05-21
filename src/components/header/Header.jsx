@@ -65,6 +65,12 @@ const Header = () => {
           </ul>
         </div>
         <div className="navbar-end">
+          <Link
+            to="/toys/add"
+            className="mr-2 rounded-xl border-2 border-accent bg-accent px-5 py-2 text-xl font-bold text-white hover:bg-transparent hover:text-accent"
+          >
+            Add Toys
+          </Link>
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn-ghost btn-circle avatar btn">
               <div className="w-10 rounded-full">
