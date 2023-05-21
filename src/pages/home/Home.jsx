@@ -1,3 +1,4 @@
+import Blog from "../../components/blog/Blog";
 import Gallery from "../../components/gallery/Gallery";
 import Toys from "../../components/toys/Toys";
 
@@ -29,6 +30,10 @@ const Home = () => {
         Shop by Category
       </h1>
       <Toys />
+      <h1 className="mb-8 text-center text-5xl font-extrabold">
+        From The Blog
+      </h1>
+      <Blog />
     </>
   );
 };

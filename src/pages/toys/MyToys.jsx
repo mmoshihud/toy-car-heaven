@@ -12,6 +12,21 @@ const MyToys = () => {
       .catch((error) => console.error(error));
   }, []);
 
+  const handleDelete = (_id) => {
+    fetch("http://localhost:5000/toys/" + _id, {
+      method: "Delete",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then(() => {
+        const remaining = toys.filter((toy) => toy._id !== _id);
+        setToys(remaining);
+      })
+      .catch((error) => console.error(error));
+  };
+
   return (
     <>
       <table>
@@ -29,7 +44,7 @@ const MyToys = () => {
               <td>{toy.subCategory}</td>
               <td>
                 <Link to={"/toys/edit/" + toy._id}>Edit</Link>
-                <button>Delete</button>
+                <button onClick={() => handleDelete(toy._id)}>Delete</button>
               </td>
             </tr>
           ))}
