@@ -46,28 +46,37 @@ const Profile = () => {
       });
   };
 
-  return (
-    <form onSubmit={handleEditForm}>
-      <label htmlFor="name">Name: </label>
-      <input
-        type="text"
-        name="name"
-        defaultValue={user ? user.displayName : ""}
-      />
-      <label htmlFor="email">Email: </label>
-      <input type="text" name="email" defaultValue={user ? user.email : ""} />
-      <label htmlFor="photo_url">Photo URL: </label>
-      <input
-        type="text"
-        name="photo_url"
-        defaultValue={user ? user.photoURL : ""}
-      />
-      <label htmlFor="password">Password</label>
-      <input type="password" name="password" placeholder="Enter Password" />
-
-      <button type="submit">Update</button>
-    </form>
-  );
+  if (user && user.providerData[0].providerId === "google.com") {
+    return (
+      <div className="mb-8 p-10 text-center text-4xl font-bold">
+        You are singed with Google You cant change user profile Information
+      </div>
+    );
+  } else if (user) {
+    return (
+      <form onSubmit={handleEditForm}>
+        <label htmlFor="name">Name: </label>
+        <input
+          type="text"
+          name="name"
+          defaultValue={user ? user.displayName : ""}
+        />
+        <label htmlFor="email">Email: </label>
+        <input type="text" name="email" defaultValue={user ? user.email : ""} />
+        <label htmlFor="photo_url">Photo URL: </label>
+        <input
+          type="text"
+          name="photo_url"
+          defaultValue={user ? user.photoURL : ""}
+        />
+        <label htmlFor="password">Password</label>
+        <input type="password" name="password" placeholder="Enter Password" />
+        <button type="submit">Update</button>
+      </form>
+    );
+  } else {
+    return <div>Loading....</div>;
+  }
 };
 
 export default Profile;

@@ -46,10 +46,11 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
         <div className="flex flex-col items-center gap-2 border-t border-base-300 py-4 sm:flex-row">
           <div className="flex-grow text-center sm:text-start">
-            <p>© 2022 Developed by Mosh, Inc. All rights reserved.</p>
+            <p>
+              © 2022 Toy Car Heaven, Inc. All rights reserved. Developed by Mosh
+            </p>
           </div>
           <div className="grid grid-flow-col gap-4">
             <a className="link-secondary link" href="#!">

@@ -1,14 +1,17 @@
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useContext } from "react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import app from "../../utilities/firebase.config";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider();
   const from = location.state?.form?.pathname || "/";
 
   const handleLoginForm = (event) => {
@@ -26,6 +29,12 @@ const Login = () => {
       .catch((error) => {
         console.log(error.message);
       });
+  };
+
+  const handleGoogleLogin = () => {
+    signInWithPopup(auth, googleProvider)
+      .then(() => navigate(from, { replace: true }))
+      .catch((error) => console.log(error.message));
   };
 
   const showPasswordHandle = () => {
@@ -75,6 +84,7 @@ const Login = () => {
           Login
         </button>
         <button
+          onClick={handleGoogleLogin}
           type="submit"
           className="my-4 w-full rounded-xl border-2 border-accent px-5 py-2 text-xl font-semibold text-slate-500"
         >
