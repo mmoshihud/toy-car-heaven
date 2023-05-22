@@ -13,25 +13,24 @@ const AddToys = () => {
     const photoUrl = event.target.photo_url.value;
     const userName = user?.displayName;
     const userEmail = user?.email;
+    const userPhoto = user?.photoURL;
 
-    fetch(
-      "https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys/add",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: name,
-          subCategory: subCategory,
-          quantity: quantity,
-          price: price,
-          photoURL: photoUrl,
-          userName: userName,
-          userEmail: userEmail,
-        }),
-      }
-    )
+    fetch("http://localhost:5000/toys/add", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        subCategory: subCategory,
+        quantity: quantity,
+        price: price,
+        photoURL: photoUrl,
+        userName: userName,
+        userEmail: userEmail,
+        userPhoto: userPhoto,
+      }),
+    })
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error(error));
@@ -81,7 +80,7 @@ const AddToys = () => {
             </label>
             <div className="mt-2">
               <input
-                type="text"
+                type="number"
                 name="quantity"
                 className="block w-full rounded-md border-0 p-4 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
@@ -106,15 +105,31 @@ const AddToys = () => {
 
           <div className="col-span-full">
             <label
-              htmlFor="price"
+              htmlFor="number"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
               Price:
             </label>
             <div className="mt-2">
               <input
-                type="text"
+                type="number"
                 name="price"
+                className="block w-full rounded-md border-0 p-4 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div className="col-span-full">
+            <label
+              htmlFor="rating"
+              className="block text-sm font-medium leading-6 text-gray-900"
+            >
+              Rating:
+            </label>
+            <div className="mt-2">
+              <input
+                type="number"
+                name="rating"
                 className="block w-full rounded-md border-0 p-4 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>

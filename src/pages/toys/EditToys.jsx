@@ -7,10 +7,7 @@ const EditToys = () => {
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys/" +
-        id.id
-    )
+    fetch("http://localhost:5000/toys/" + id.id)
       .then((response) => response.json())
       .then((data) => setToys(data))
       .catch((error) => console.error(error));
@@ -24,23 +21,19 @@ const EditToys = () => {
     const price = event.target.price.value;
     const photo_url = event.target.photo_url.value;
 
-    fetch(
-      "https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys/" +
-        id.id,
-      {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: name,
-          subCategory: subCategory,
-          quantity: quantity,
-          price: price,
-          photoURL: photo_url,
-        }),
-      }
-    )
+    fetch("http://localhost:5000/toys/" + id.id, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        subCategory: subCategory,
+        quantity: quantity,
+        price: price,
+        photoURL: photo_url,
+      }),
+    })
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error(error));

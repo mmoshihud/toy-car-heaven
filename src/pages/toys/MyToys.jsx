@@ -6,23 +6,19 @@ const MyToys = () => {
   const [toys, setToys] = useState([]);
 
   useEffect(() => {
-    fetch("https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys")
+    fetch("http://localhost:5000/toys")
       .then((response) => response.json())
       .then((data) => setToys(data))
       .catch((error) => console.error(error));
   }, []);
 
   const handleDelete = (_id) => {
-    fetch(
-      "https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys/" +
-        _id,
-      {
-        method: "Delete",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    )
+    fetch("http://localhost:5000/toys/" + _id, {
+      method: "Delete",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((response) => response.json())
       .then(() => {
         const remaining = toys.filter((toy) => toy._id !== _id);
@@ -58,7 +54,7 @@ const MyToys = () => {
                   <td className="px-4 py-2">{toy.quantity}</td>
                   <td className="px-4 py-2">
                     <Link
-                      href={"/toys/edit/" + toy._id}
+                      to={"/toys/edit/" + toy._id}
                       className="text-blue-500 underline"
                     >
                       Edit
