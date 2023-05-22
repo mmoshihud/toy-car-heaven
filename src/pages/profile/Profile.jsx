@@ -48,7 +48,7 @@ const Profile = () => {
 
   if (user && user.providerData[0].providerId === "google.com") {
     return (
-      <div className="mb-8 p-10 text-center text-4xl font-bold">
+      <div className="mb-8 p-8 text-center text-4xl font-bold">
         You are singed with Google You cant change user profile Information
       </div>
     );
