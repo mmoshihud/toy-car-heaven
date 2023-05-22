@@ -32,7 +32,9 @@ const Home = () => {
               Explore our collection and find the perfect toy car for your
               little one.
             </p>
-            <button className="btn-accent btn sm:btn-wide">Shop Now</button>
+            <button className="btn-accent btn text-lg font-bold text-white sm:btn-wide">
+              Shop Now
+            </button>
           </div>
         </div>
       </div>
