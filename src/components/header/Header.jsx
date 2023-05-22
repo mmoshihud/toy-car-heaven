@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
@@ -33,7 +33,18 @@ const Header = () => {
               className="dropdown-content menu rounded-box menu-compact mt-3 w-52 bg-base-100 p-2 shadow"
             >
               <li>
-                <Link to="/">Home</Link>
+                <NavLink
+                  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "text-amber-900"
+                      : isPending
+                      ? "pending"
+                      : "text-gray-500"
+                  }
+                  to="/"
+                >
+                  Home
+                </NavLink>
               </li>
               <li>
                 <Link to="/all-toys">All Toys</Link>
@@ -66,17 +77,61 @@ const Header = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link to="/">Home</Link>
+            <li className="text-xl font-bold">
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? "text-accent"
+                    : isPending
+                    ? "pending"
+                    : "text-gray-500"
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
-            <li>
-              <Link to="/all-toys">All Toys</Link>
+            <li className="text-xl font-bold">
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? "text-accent"
+                    : isPending
+                    ? "pending"
+                    : "text-gray-500"
+                }
+                to="/all-toys"
+              >
+                All Toys
+              </NavLink>
             </li>
-            <li>
-              <Link to="/my-toys">My Toys</Link>
+            <li className="text-xl font-bold">
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? "text-accent"
+                    : isPending
+                    ? "pending"
+                    : "text-gray-500"
+                }
+                to="/my-toys"
+              >
+                My Toys
+              </NavLink>
             </li>
-            <li>
-              <Link to="/blogs">Blogs</Link>
+            <li className="text-xl font-bold">
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? "text-accent"
+                    : isPending
+                    ? "pending"
+                    : "text-gray-500"
+                }
+                to="/blogs"
+              >
+                Blogs
+              </NavLink>
             </li>
           </ul>
         </div>

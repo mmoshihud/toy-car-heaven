@@ -7,15 +7,16 @@ const Blog = () => {
           <div className="h-full overflow-hidden rounded-lg border-2 border-gray-200 border-opacity-60">
             <img
               className="w-full object-cover object-center md:h-36 lg:h-48"
-              src="https://dummyimage.com/720x400"
+              src="https://babystreet.althemist.com/wp-content/uploads/2019/02/back-school-kids.jpg"
               alt="blog"
             />
             <div className="p-6">
               <h1 className="title-font mb-3 text-lg font-medium text-gray-900">
-                Heaven Toys
+                Rev Up Your Collection
               </h1>
               <p className="mb-3 leading-relaxed">
-                From the Kid heart to there parents Heart. What a transformation
+                Exploring the Top 10 Toy Cars of 2023" - Get a glimpse of the
+                latest and greatest toy cars for collectors.
               </p>
               <div className="flex flex-wrap items-center">
                 <a className="inline-flex items-center text-indigo-500 md:mb-2 lg:mb-0">
@@ -28,7 +29,7 @@ const Blog = () => {
                   <span className="mr-2">
                     <FaEye />
                   </span>
-                  9.99k
+                  19.99k
                 </span>
                 <span className="inline-flex items-center text-sm leading-none text-gray-400">
                   <span className="mr-2">
@@ -44,15 +45,17 @@ const Blog = () => {
           <div className="h-full overflow-hidden rounded-lg border-2 border-gray-200 border-opacity-60">
             <img
               className="w-full object-cover object-center md:h-36 lg:h-48"
-              src="https://dummyimage.com/720x400"
+              src="https://babystreet.althemist.com/wp-content/uploads/2019/02/test-baby-hero2.jpg"
               alt="blog"
             />
             <div className="p-6">
               <h1 className="title-font mb-3 text-lg font-medium text-gray-900">
-                Heaven Toys
+                Unleash Your Inner Speedster
               </h1>
               <p className="mb-3 leading-relaxed">
-                From the Kid heart to there parents Heart. What a transformation
+                The Ultimate Guide to Toy Car Racing" - Dive into the thrilling
+                world of toy car racing and discover tips to enhance your racing
+                experience
               </p>
               <div className="flex flex-wrap items-center">
                 <a className="inline-flex items-center text-indigo-500 md:mb-2 lg:mb-0">
@@ -65,7 +68,7 @@ const Blog = () => {
                   <span className="mr-2">
                     <FaEye />
                   </span>
-                  9.99k
+                  100k
                 </span>
                 <span className="inline-flex items-center text-sm leading-none text-gray-400">
                   <span className="mr-2">
@@ -81,15 +84,17 @@ const Blog = () => {
           <div className="h-full overflow-hidden rounded-lg border-2 border-gray-200 border-opacity-60">
             <img
               className="w-full object-cover object-center md:h-36 lg:h-48"
-              src="https://dummyimage.com/720x400"
+              src="https://babystreet.althemist.com/wp-content/uploads/2018/06/bs-blog-1.jpg"
               alt="blog"
             />
             <div className="p-6">
               <h1 className="title-font mb-3 text-lg font-medium text-gray-900">
-                Heaven Toys
+                From Classic to Modern
               </h1>
               <p className="mb-3 leading-relaxed">
-                From the Kid heart to there parents Heart. What a transformation
+                A Journey Through the Evolution of Toy Cars" - Take a nostalgic
+                trip through time and explore the evolution of toy cars from
+                vintage to contemporary models.
               </p>
               <div className="flex flex-wrap items-center">
                 <a className="inline-flex items-center text-indigo-500 md:mb-2 lg:mb-0">
@@ -102,13 +107,13 @@ const Blog = () => {
                   <span className="mr-2">
                     <FaEye />
                   </span>
-                  9.99k
+                  99k
                 </span>
                 <span className="inline-flex items-center text-sm leading-none text-gray-400">
                   <span className="mr-2">
                     <FaComment />
                   </span>
-                  56
+                  92
                 </span>
               </div>
             </div>

@@ -25,10 +25,14 @@ const Home = () => {
         <div className="hero-content text-center text-secondary-content">
           <div className="max-w-lg">
             <h1 className="mb-5 text-4xl font-bold sm:mb-7 sm:text-5xl">
-              Shine Bright
+              Welcome to our Toy Car Store
             </h1>
-            <p className="mb-5 sm:mb-7 sm:text-lg">Like a Superstar</p>
-            <button className="btn-warning btn sm:btn-wide">Shop Now</button>
+            <p className="mb-5 sm:mb-7 sm:text-lg">
+              Discover a world of exciting toy cars for kids of all ages.
+              Explore our collection and find the perfect toy car for your
+              little one.
+            </p>
+            <button className="btn-accent btn sm:btn-wide">Shop Now</button>
           </div>
         </div>
       </div>

@@ -32,6 +32,7 @@ const ToyDetails = () => {
               <p className="mb-4 text-gray-600">
                 Category: {toyDetails.subCategory}
               </p>
+              <p class="mb-4 text-gray-800">{toyDetails.description}</p>
               <div className="mb-4 flex items-center">
                 <span className="mr-2 font-bold text-gray-700">Price:</span>
                 <span className="font-bold text-accent">
