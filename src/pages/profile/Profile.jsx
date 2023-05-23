@@ -1,11 +1,14 @@
 import { getAuth, updatePassword, updateProfile } from "firebase/auth";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
 import app from "../../utilities/firebase.config";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
   const auth = getAuth(app);
+  const navigate = useNavigate();
 
   const handleUpdatePassword = (newPassword) => {
     const users = auth.currentUser;
@@ -14,9 +17,21 @@ const Profile = () => {
       updatePassword(users, newPassword)
         .then(() => {
           console.log("Password updated successfully!");
+          Swal.fire({
+            title: "Confirmation!",
+            text: "Only Password Updated. don't type password to update profile!",
+            icon: "success",
+            confirmButtonText: "Okay!",
+          });
+          navigate("/user-profile");
         })
         .catch((error) => {
-          console.error("Error updating password:", error);
+          Swal.fire({
+            title: error,
+            text: "Do you want to continue",
+            icon: "error",
+            confirmButtonText: "Okay!",
+          });
         });
     } else {
       console.error("No user is currently signed in.");
@@ -29,21 +44,37 @@ const Profile = () => {
     const name = event.target.name.value;
     const email = event.target.email.value;
     const photoUrl = event.target.photo_url.value;
-    if (password) {
-      handleUpdatePassword(password);
-    }
-    updateProfile(auth.currentUser, {
-      displayName: name,
-      email: email,
-      photoURL: photoUrl,
-    })
-      .then(() => {
-        console.log("profile updated");
-        event.target.reset();
+
+    try {
+      if (password) {
+        handleUpdatePassword(password);
+        return;
+      }
+      updateProfile(auth.currentUser, {
+        displayName: name,
+        email: email,
+        photoURL: photoUrl,
       })
-      .catch((error) => {
-        console.log(error);
-      });
+        .then(() => {
+          console.log("profile updated");
+          Swal.fire({
+            title: "Confirmation!",
+            text: "Profile updated successfully!",
+            icon: "success",
+            confirmButtonText: "Okay!",
+          });
+          navigate("/user-profile");
+          event.target.reset();
+        })
+        .catch((error) => {
+          Swal.fire({
+            title: error,
+            text: "Do you want to continue",
+            icon: "error",
+            confirmButtonText: "Okay!",
+          });
+        });
+    } catch (error) {}
   };
 
   if (user && user.providerData[0].providerId === "google.com") {
@@ -54,25 +85,82 @@ const Profile = () => {
     );
   } else if (user) {
     return (
-      <form onSubmit={handleEditForm}>
-        <label htmlFor="name">Name: </label>
-        <input
-          type="text"
-          name="name"
-          defaultValue={user ? user.displayName : ""}
-        />
-        <label htmlFor="email">Email: </label>
-        <input type="text" name="email" defaultValue={user ? user.email : ""} />
-        <label htmlFor="photo_url">Photo URL: </label>
-        <input
-          type="text"
-          name="photo_url"
-          defaultValue={user ? user.photoURL : ""}
-        />
-        <label htmlFor="password">Password</label>
-        <input type="password" name="password" placeholder="Enter Password" />
-        <button type="submit">Update</button>
-      </form>
+      <>
+        <form onSubmit={handleEditForm} className="container mx-auto mb-4">
+          <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+            <div className="col-span-full">
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Name:
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="name"
+                  defaultValue={user ? user.displayName : ""}
+                  className="block w-full rounded-md border-0 p-4 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div className="col-span-full">
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Email:
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="email"
+                  defaultValue={user ? user.email : ""}
+                  className="block w-full rounded-md border-0 p-4 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div className="col-span-full">
+              <label
+                htmlFor="photo_url"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Email:
+              </label>
+              <div className="mt-2">
+                <input
+                  type="text"
+                  name="photo_url"
+                  defaultValue={user ? user.photoURL : ""}
+                  className="block w-full rounded-md border-0 p-4 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <div className="col-span-full">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium leading-6 text-gray-900"
+              >
+                Email:
+              </label>
+              <div className="mt-2">
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Enter Password to Change Current Password"
+                  className="block w-full rounded-md border-0 p-4 py-1.5 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+            <button
+              className="rounded-md bg-accent px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-accent-focus"
+              type="submit"
+            >
+              Update
+            </button>
+          </div>
+        </form>
+      </>
     );
   } else {
     return <div>Loading....</div>;
