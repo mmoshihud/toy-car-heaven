@@ -22,24 +22,27 @@ const AddToys = () => {
     const userEmail = user?.email;
     const userPhoto = user?.photoURL;
 
-    fetch("http://localhost:5000/toys/add", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        description: description,
-        subCategory: subCategory,
-        quantity: quantity,
-        price: price,
-        rating: rating,
-        photoURL: photoUrl,
-        userName: userName,
-        userEmail: userEmail,
-        userPhoto: userPhoto,
-      }),
-    })
+    fetch(
+      "https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys/add",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: name,
+          description: description,
+          subCategory: subCategory,
+          quantity: quantity,
+          price: price,
+          rating: rating,
+          photoURL: photoUrl,
+          userName: userName,
+          userEmail: userEmail,
+          userPhoto: userPhoto,
+        }),
+      }
+    )
       .then((response) => response.json())
       .then(() => {
         Swal.fire({

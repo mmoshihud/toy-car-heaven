@@ -1,7 +1,7 @@
 const FeaturedToy = () => {
   return (
     <div className="container mx-auto">
-      <div className="grid grid-cols-8 gap-4">
+      <div className="grid grid-cols-2 gap-4 xl:grid-cols-8 xl:gap-0">
         <div className="overflow-hidden rounded-lg">
           <img
             src="https://motherscare.store/pub/media/catalog/product/cache/8668863832ddbbed1bdc96544dcbfab2/u/n/untitled-1889fe8fa.jpg"

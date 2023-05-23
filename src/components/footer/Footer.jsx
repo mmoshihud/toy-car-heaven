@@ -1,30 +1,77 @@
+import { Link } from "react-router-dom";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaRegStar,
+  FaStar,
+  FaTwitter,
+  FaWhatsapp,
+} from "react-icons/fa";
+
 const Footer = () => {
   return (
     <footer className="bg-base-200 text-base-content">
       <div className="container mx-auto">
         <div className="lg:grid-cols-auto footer grid-cols-2 py-10 sm:grid-cols-4 md:py-16">
           <div>
-            <span className="footer-title">Solutions</span>
-            <a href="#!" className="link-hover link">
+            <span className="footer-title">Explore</span>
+            <Link to="/about-us" className="link-hover link">
+              About Us
+            </Link>
+            <a href="#" className="link-hover link">
               Marketing
             </a>
-          </div>
-          <div>
-            <span className="footer-title">Services</span>
-            <a href="#!" className="link-hover link">
-              Branding
+            <a href="#" className="link-hover link">
+              Contact Us
+            </a>
+            <a href="#" className="link-hover link">
+              FAQ
             </a>
           </div>
           <div>
-            <span className="footer-title">Company</span>
-            <a href="#!" className="link-hover link">
-              About us
+            <span className="footer-title">Shop by Category</span>
+            <a href="#" className="link-hover link">
+              Action Movie Cars
+            </a>
+            <a href="#" className="link-hover link">
+              Sports Car
+            </a>
+            <a href="#" className="link-hover link">
+              Wagon Cars
+            </a>
+            <a href="#" className="link-hover link">
+              Outdoor Toys
             </a>
           </div>
           <div>
-            <span className="footer-title">Legal</span>
-            <a href="#!" className="link-hover link">
-              Terms of use
+            <span className="footer-title">Customer Service</span>
+
+            <a href="#" className="link-hover link">
+              Returns and Exchanges
+            </a>
+            <a href="#" className="link-hover link">
+              Privacy Policy
+            </a>
+            <a href="#" className="link-hover link">
+              Terms and Conditions
+            </a>
+            <a href="#" className="link-hover link">
+              Track Your Order
+            </a>
+          </div>
+          <div>
+            <span className="footer-title">Stay Connected</span>
+            <a href="#" className="link-hover block">
+              <FaFacebook />
+            </a>
+            <a href="#" className="link-hover link">
+              <FaInstagram />
+            </a>
+            <a href="#" className="link-hover link">
+              <FaWhatsapp />
+            </a>
+            <a href="#" className="link-hover link">
+              <FaTwitter />
             </a>
           </div>
           <div className="col-span-full w-full md:col-auto">
@@ -51,23 +98,6 @@ const Footer = () => {
             <p>
               © 2022 Toy Car Heaven, Inc. All rights reserved. Developed by Mosh
             </p>
-          </div>
-          <div className="grid grid-flow-col gap-4">
-            <a className="link-secondary link" href="#!">
-              <i className="bi bi-facebook text-xl"></i>
-            </a>
-            <a className="link-secondary link" href="#!">
-              <i className="bi bi-instagram text-xl"></i>
-            </a>
-            <a className="link-secondary link" href="#!">
-              <i className="bi bi-twitter text-xl"></i>
-            </a>
-            <a className="link-secondary link" href="#!">
-              <i className="bi bi-github text-xl"></i>
-            </a>
-            <a className="link-secondary link" href="#!">
-              <i className="bi bi-dribbble text-xl"></i>
-            </a>
           </div>
         </div>
       </div>

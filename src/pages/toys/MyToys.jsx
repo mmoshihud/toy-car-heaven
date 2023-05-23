@@ -20,19 +20,25 @@ const MyToys = () => {
 
   useEffect(() => {
     const sortValue = selectedToys === true ? 1 : -1;
-    fetch(`http://localhost:5000/toys?email=${user.email}&sort=${sortValue}`)
+    fetch(
+      `https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys?email=${user.email}&sort=${sortValue}`
+    )
       .then((response) => response.json())
       .then((data) => setToys(data))
       .catch((error) => console.error(error));
   }, [selectedToys]);
 
   const handleDelete = (_id) => {
-    fetch("http://localhost:5000/toys/" + _id, {
-      method: "Delete",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
+    fetch(
+      "https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys/" +
+        _id,
+      {
+        method: "Delete",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    )
       .then((response) => response.json())
       .then(() => {
         const remaining = toys.filter((toy) => toy._id !== _id);

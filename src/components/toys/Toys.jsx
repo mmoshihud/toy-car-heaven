@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import "react-tabs/style/react-tabs.css";
 import { FaRegStar, FaStar } from "react-icons/fa";
-import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import "react-tabs/style/react-tabs.css";
+import { useEffect } from "react";
+import { useState } from "react";
+import Rating from "react-rating";
 
 const Toys = () => {
   const [toys, setToys] = useState([]);
@@ -16,7 +16,9 @@ const Toys = () => {
 
   const categoryToys = (category) => {
     setLoading(true);
-    fetch(`http://localhost:5000/toys?category=${category}`)
+    fetch(
+      `https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys?category=${category}`
+    )
       .then((response) => response.json())
       .then((data) => {
         setToys(data);
@@ -43,7 +45,7 @@ const Toys = () => {
                 {toys.map((toy) => (
                   <div key={toy._id} className="rounded-xl shadow-lg">
                     <img
-                      className="w-full rounded-xl"
+                      className="h-96 w-full rounded-xl object-cover object-bottom"
                       src={toy.photoURL}
                       alt="Product Image"
                     />
@@ -87,7 +89,7 @@ const Toys = () => {
                 {toys.map((toy) => (
                   <div key={toy._id} className="rounded-xl shadow-lg">
                     <img
-                      className="w-full rounded-xl"
+                      className="h-96 w-full rounded-xl object-cover object-bottom"
                       src={toy.photoURL}
                       alt="Product Image"
                     />
@@ -131,7 +133,7 @@ const Toys = () => {
                 {toys.map((toy) => (
                   <div key={toy._id} className="rounded-xl shadow-lg">
                     <img
-                      className="w-full rounded-xl"
+                      className="h-96 w-full rounded-xl object-cover object-bottom"
                       src={toy.photoURL}
                       alt="Product Image"
                     />

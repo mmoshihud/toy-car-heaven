@@ -7,7 +7,8 @@ const ToyDetails = () => {
   useTitle("Toys | Toy Car Heaven");
   const { id } = useParams();
   const [toyDetails, setToyDetails] = useState([]);
-  const url = "http://localhost:5000/toys/" + id;
+  const url =
+    "https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys/" + id;
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())

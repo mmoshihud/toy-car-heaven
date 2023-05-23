@@ -12,7 +12,7 @@ const AllToys = () => {
   const [limitedToys, setLimitedToys] = useState(4);
 
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch("https://b7a11-toy-marketplace-server-side-mmoshihud.vercel.app/toys")
       .then((response) => response.json())
       .then((data) => setToys(data))
       .catch((error) => console.error(error));
