@@ -1,3 +1,5 @@
+import { FaRegStar, FaStar } from "react-icons/fa";
+import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -24,7 +26,22 @@ const Toys = (props) => {
                   />
                   <div className="px-6 py-4">
                     <div className="mb-2 text-xl font-bold">{toy.name}</div>
-                    <p className="text-base text-gray-700">${toy.price}</p>
+                    <div className="mb-4 flex items-center">
+                      <span className="mr-2 font-bold text-gray-700">
+                        Price:
+                      </span>
+                      <span className="font-bold text-accent">
+                        ${toy.price}
+                      </span>
+                    </div>
+
+                    <Rating
+                      placeholderRating={toy.rating}
+                      emptySymbol={<FaRegStar className="text-warning" />}
+                      placeholderSymbol={<FaStar className="text-warning" />}
+                      fullSymbol={<FaStar />}
+                      readonly
+                    />
                   </div>
                   <div className="px-6 py-4">
                     <Link
@@ -49,7 +66,22 @@ const Toys = (props) => {
                   />
                   <div className="px-6 py-4">
                     <div className="mb-2 text-xl font-bold">{toy.name}</div>
-                    <p className="text-base text-gray-700">${toy.price}</p>
+                    <div className="mb-4 flex items-center">
+                      <span className="mr-2 font-bold text-gray-700">
+                        Price:
+                      </span>
+                      <span className="font-bold text-accent">
+                        ${toy.price}
+                      </span>
+                    </div>
+
+                    <Rating
+                      placeholderRating={toy.rating}
+                      emptySymbol={<FaRegStar className="text-warning" />}
+                      placeholderSymbol={<FaStar className="text-warning" />}
+                      fullSymbol={<FaStar />}
+                      readonly
+                    />
                   </div>
                   <div className="px-6 py-4">
                     <Link
@@ -74,7 +106,22 @@ const Toys = (props) => {
                   />
                   <div className="px-6 py-4">
                     <div className="mb-2 text-xl font-bold">{toy.name}</div>
-                    <p className="text-base text-gray-700">${toy.price}</p>
+                    <div className="mb-4 flex items-center">
+                      <span className="mr-2 font-bold text-gray-700">
+                        Price:
+                      </span>
+                      <span className="font-bold text-accent">
+                        ${toy.price}
+                      </span>
+                    </div>
+
+                    <Rating
+                      placeholderRating={toy.rating}
+                      emptySymbol={<FaRegStar className="text-warning" />}
+                      placeholderSymbol={<FaStar className="text-warning" />}
+                      fullSymbol={<FaStar />}
+                      readonly
+                    />
                   </div>
                   <div className="px-6 py-4">
                     <Link

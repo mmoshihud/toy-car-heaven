@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import Rating from "react-rating";
 import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
+import { FaRegStar, FaStar } from "react-icons/fa";
 
 const AllToys = () => {
   useTitle("All Toys | Toy Car Heaven");
@@ -44,42 +46,13 @@ const AllToys = () => {
               <div className="mb-2 text-xl font-bold">{toy.name}</div>
               <p className="text-base text-gray-700">${toy.price}</p>
               <div className="mb-4 mt-2 flex items-center">
-                <svg
-                  className="mr-1 h-4 w-4 fill-current text-yellow-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M10 12.585l-4.95 3.746 1.902-5.854-4.98-3.61h6.136l1.892-5.857 1.889 5.857h6.14l-4.981 3.61 1.903 5.854z" />
-                </svg>
-                <svg
-                  className="mr-1 h-4 w-4 fill-current text-yellow-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M10 12.585l-4.95 3.746 1.902-5.854-4.98-3.61h6.136l1.892-5.857 1.889 5.857h6.14l-4.981 3.61 1.903 5.854z" />
-                </svg>
-                <svg
-                  className="mr-1 h-4 w-4 fill-current text-yellow-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M10 12.585l-4.95 3.746 1.902-5.854-4.98-3.61h6.136l1.892-5.857 1.889 5.857h6.14l-4.981 3.61 1.903 5.854z" />
-                </svg>
-                <svg
-                  className="mr-1 h-4 w-4 fill-current text-yellow-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M10 12.585l-4.95 3.746 1.902-5.854-4.98-3.61h6.136l1.892-5.857 1.889 5.857h6.14l-4.981 3.61 1.903 5.854z" />
-                </svg>
-                <svg
-                  className="h-4 w-4 fill-current text-gray-400"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M10 12.585l-4.95 3.746 1.902-5.854-4.98-3.61h6.136l1.892-5.857 1.889 5.857h6.14l-4.981 3.61 1.903 5.854z" />
-                </svg>
-                <span className="ml-1 text-sm text-gray-700">(123)</span>
+                <Rating
+                  placeholderRating={toy.rating}
+                  emptySymbol={<FaRegStar />}
+                  placeholderSymbol={<FaStar className="text-warning" />}
+                  fullSymbol={<FaStar />}
+                  readonly
+                />
               </div>
               <div className="flex items-center">
                 <div className="mr-4">
