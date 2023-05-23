@@ -4,8 +4,10 @@ import Blog from "../../components/blog/Blog";
 import FeaturedToy from "../../components/featured-toy/FeaturedToy";
 import Gallery from "../../components/gallery/Gallery";
 import Toys from "../../components/toys/Toys";
+import useTitle from "../../hooks/useTitle";
 
 const Home = () => {
+  useTitle("Toy Car Heaven");
   const [toys, setToys] = useState([]);
   useEffect(() => {
     fetch("http://localhost:5000/toys")

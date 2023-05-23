@@ -2,10 +2,12 @@ import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useContext } from "react";
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 import { AuthContext } from "../../provider/AuthProvider";
 import app from "../../utilities/firebase.config";
 
 const Login = () => {
+  useTitle("Login");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [warning, setWarning] = useState("");

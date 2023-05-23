@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const ToyDetails = () => {
+  useTitle("Toys | Toy Car Heaven");
   const { id } = useParams();
   const [toyDetails, setToyDetails] = useState([]);
   const url = "http://localhost:5000/toys/" + id;

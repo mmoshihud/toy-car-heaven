@@ -1,4 +1,7 @@
+import useTitle from "../../hooks/useTitle";
+
 const BlogPage = () => {
+  useTitle("Blog | Toy Car Heaven");
   return (
     <div className="container mx-auto">
       <h1 className="mb-4 text-2xl font-bold">

@@ -1,7 +1,9 @@
 import { useContext } from "react";
+import useTitle from "../../hooks/useTitle";
 import { AuthContext } from "../../provider/AuthProvider";
 
 const AddToys = () => {
+  useTitle("Add Toys | Toy Car Heaven");
   const { user } = useContext(AuthContext);
 
   const handleToyForm = (event) => {
@@ -58,19 +60,19 @@ const AddToys = () => {
           </div>
         </div>
 
-        <div class="col-span-full">
+        <div className="col-span-full">
           <label
-            for="about"
-            class="block text-sm font-medium leading-6 text-gray-900"
+            htmlFor="about"
+            className="block text-sm font-medium leading-6 text-gray-900"
           >
             Description
           </label>
-          <div class="mt-2">
+          <div className="mt-2">
             <textarea
               id="description"
               name="description"
               rows="5"
-              class="block w-full rounded-md border-0 p-2 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+              className="block w-full rounded-md border-0 p-2 text-lg font-bold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
             ></textarea>
           </div>
         </div>

@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import Profile from "../pages/profile/Profile";
 import Register from "../pages/register/Register";
 import ToyDetails from "../pages/toys/ToyDetails";
+import AboutPage from "../pages/about/AbouPage";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <BlogPage />,
+      },
+      {
+        path: "/about-us",
+        element: <AboutPage />,
       },
       {
         path: "/user-profile",

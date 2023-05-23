@@ -9,8 +9,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { useState } from "react";
 import app from "../../utilities/firebase.config";
+import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
+  useTitle("Sign Up");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const [warning, setWarning] = useState("");

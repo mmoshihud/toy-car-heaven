@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
-  useTitle("Toy Car Heaven All Toys");
+  useTitle("All Toys | Toy Car Heaven");
   const [toys, setToys] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [limitedToys, setLimitedToys] = useState(1);
