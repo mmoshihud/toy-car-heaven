@@ -5,7 +5,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 const Header = () => {
   const { user, logOut, loading } = useContext(AuthContext);
   const handleLogOut = () => {
-    logOut().then(console.log("log out success"));
+    logOut().then(console.log("Log out success"));
   };
   return (
     <div className="container mx-auto">
@@ -36,7 +36,7 @@ const Header = () => {
                 <NavLink
                   className={({ isActive, isPending }) =>
                     isActive
-                      ? "text-amber-900"
+                      ? "text-accent"
                       : isPending
                       ? "pending"
                       : "text-gray-500"
@@ -47,13 +47,60 @@ const Header = () => {
                 </NavLink>
               </li>
               <li>
-                <Link to="/all-toys">All Toys</Link>
+                <NavLink
+                  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "text-accent"
+                      : isPending
+                      ? "pending"
+                      : "text-gray-500"
+                  }
+                  to="/all-toys"
+                >
+                  All Toys
+                </NavLink>
               </li>
               <li>
-                <Link to="/my-toys">My Toys</Link>
+                <NavLink
+                  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "text-accent"
+                      : isPending
+                      ? "pending"
+                      : "text-gray-500"
+                  }
+                  to="/my-toys"
+                >
+                  My Toys
+                </NavLink>
               </li>
               <li>
-                <Link to="/blogs">Blogs</Link>
+                <NavLink
+                  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "text-accent"
+                      : isPending
+                      ? "pending"
+                      : "text-gray-500"
+                  }
+                  to="/about-us"
+                >
+                  About Us
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  className={({ isActive, isPending }) =>
+                    isActive
+                      ? "text-accent"
+                      : isPending
+                      ? "pending"
+                      : "text-gray-500"
+                  }
+                  to="/blogs"
+                >
+                  Blogs
+                </NavLink>
               </li>
             </ul>
           </div>
@@ -117,6 +164,20 @@ const Header = () => {
                 to="/my-toys"
               >
                 My Toys
+              </NavLink>
+            </li>
+            <li className="text-xl font-bold">
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isActive
+                    ? "text-accent"
+                    : isPending
+                    ? "pending"
+                    : "text-gray-500"
+                }
+                to="/about-us"
+              >
+                About Us
               </NavLink>
             </li>
             <li className="text-xl font-bold">

@@ -11,7 +11,7 @@ const Toys = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    categoryToys("Sports");
+    categoryToys("Sports"); // Initial Search
   }, []);
 
   const categoryToys = (category) => {
@@ -28,11 +28,11 @@ const Toys = () => {
   return (
     <>
       <div className="container mx-auto">
-        <Tabs>
+        <Tabs className="mb-8">
           <TabList className="mb-8 flex justify-center">
             <Tab onClick={() => categoryToys("Sports")}>Sports</Tab>
-            <Tab onClick={() => categoryToys("Wagon")}>Wagon Car</Tab>
-            <Tab onClick={() => categoryToys("Stylish")}>Stylish Car</Tab>
+            <Tab onClick={() => categoryToys("Wagon")}>Wagon</Tab>
+            <Tab onClick={() => categoryToys("Truck")}>Truck</Tab>
           </TabList>
 
           <TabPanel>

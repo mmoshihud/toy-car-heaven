@@ -1,12 +1,14 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
 
 const EditToys = () => {
   useTitle("Edit | Toy Car Heaven");
   const id = useParams();
   const [toys, setToys] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:5000/toys/" + id.id)
@@ -41,8 +43,23 @@ const EditToys = () => {
       }),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+      .then(() => {
+        Swal.fire({
+          title: "Confirmation!",
+          text: "Toy edited successfully!",
+          icon: "success",
+          confirmButtonText: "Okay!",
+        });
+        navigate("/my-toys");
+      })
+      .catch((error) =>
+        Swal.fire({
+          title: error,
+          text: "Do you want to continue",
+          icon: "error",
+          confirmButtonText: "Okay!",
+        })
+      );
   };
 
   return (

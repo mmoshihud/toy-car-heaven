@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import useTitle from "../../hooks/useTitle";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const AddToys = () => {
   useTitle("Add Toys | Toy Car Heaven");
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleToyForm = (event) => {
     event.preventDefault();
@@ -38,8 +41,23 @@ const AddToys = () => {
       }),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
-      .catch((error) => console.error(error));
+      .then(() => {
+        Swal.fire({
+          title: "Success!",
+          text: "Toy added successfully!",
+          icon: "success",
+          confirmButtonText: "Okay!",
+        });
+        navigate("/my-toys");
+      })
+      .catch((error) =>
+        Swal.fire({
+          title: error,
+          text: "Do you want to continue",
+          icon: "error",
+          confirmButtonText: "Okay!",
+        })
+      );
   };
   return (
     <form onSubmit={handleToyForm} className="container mx-auto mb-4">
