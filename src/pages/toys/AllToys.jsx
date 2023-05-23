@@ -9,7 +9,7 @@ const AllToys = () => {
   useTitle("All Toys | Toy Car Heaven");
   const [toys, setToys] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [limitedToys, setLimitedToys] = useState(1);
+  const [limitedToys, setLimitedToys] = useState(4);
 
   useEffect(() => {
     fetch("http://localhost:5000/toys")

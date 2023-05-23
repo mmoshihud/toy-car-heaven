@@ -37,7 +37,7 @@ const MyToys = () => {
             <thead>
               <tr className="bg-gray-200">
                 <th className="border-b border-gray-300 px-4 py-2">Toy Name</th>
-                <th className="border-b border-gray-300 px-4 py-2">Email</th>
+                <th className="border-b border-gray-300 px-4 py-2">Category</th>
                 <th className="border-b border-gray-300 px-4 py-2">
                   Uploaded By
                 </th>
@@ -52,7 +52,7 @@ const MyToys = () => {
                   <td className="px-4 py-2">{toy.name}</td>
                   <td className="px-4 py-2">{toy.subCategory}</td>
                   <td className="px-4 py-2">{toy.userName}</td>
-                  <td className="px-4 py-2">{toy.price}</td>
+                  <td className="px-4 py-2">${toy.price}</td>
                   <td className="px-4 py-2">{toy.quantity}</td>
                   <td className="px-4 py-2">
                     <Link
